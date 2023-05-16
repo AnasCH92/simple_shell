@@ -6,9 +6,9 @@ void	prompt(char **argv, char **env)
 {
 	char *command = NULL;/*stores the adress of the buffer*/
 	size_t n = 0;/*to store the allocated size in bytes*/
-	int i, status;
+	int i, j, status;
 	ssize_t number_of_chars;/*to store the number of chars read from getline*/
-	char *av[] = {NULL, NULL};
+	char *buffer[] = {NULL, NULL};
 	pid_t child_pid;
 
 	while (1)
@@ -29,7 +29,10 @@ void	prompt(char **argv, char **env)
 				command[i] = 0;
 			i++;
 		}
-		av[0] = command;
+		j = 0;
+		buffer[j] = strtok(command, " \t\n");
+		while (buffer[j])
+			buffer[++j] = strtok(NULL, " \t\n");
 		child_pid =fork();
 		if (child_pid == -1)
 		{
@@ -38,7 +41,7 @@ void	prompt(char **argv, char **env)
 		}
 		if (child_pid == 0)
 		{
-			if (execve(av[0], av, env) == -1)
+			if (execve(buffer[0], buffer, env) == -1)
 				printf("%s: No such file or directory\n", argv[0]);
 			exit(EXIT_FAILURE);
 		}
