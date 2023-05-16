@@ -47,5 +47,6 @@ void	prompt(char **argv, char **env)
 		}
 		else
 			wait(&status);
+		free(command);
 	}
 }
