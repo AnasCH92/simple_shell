@@ -28,3 +28,22 @@ char **_realloc(char **ptr, size_t size)
         save[len] = NULL;
         return (save);
 }
+
+/**
+ * free_array - free an array of pointers
+ * @array: array of pointers
+ * Return: void
+ */
+
+void free_array(char **array)
+{
+        int i;
+
+        if (!array)
+                return;
+
+        for (i = 0; array[i]; i++)
+                free(array[i]);
+
+        free(array);
+}
