@@ -24,7 +24,7 @@ int	_strlen(char	*str)
  * @dest: pointer to destionation string.
  * @src: pointer to src string.
  *
- * @Return: destination string.
+ * Return: destination string.
  */
 
 char	*_strcpy(char	*dest, char	*src)
@@ -79,14 +79,21 @@ char *_strcat(char *dest, char *src)
 
 int	_strcmp(char	*s1, char	*s2)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i]; i++)
-	{
+	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
 			i++;
-	}
 	return (s1[i] - s2[i]);
 }
+
+/**
+ * _strdup - allocate memory for a new string and copy the contents of
+ *           the input string into the newly allocated memory.
+ *
+ * @s1: string to be duplicated.
+ *
+ * Return: pointer a pointer to the newly allocated duplicate string.
+ */
 
 char	*_strdup(const char *s1)
 {
@@ -107,32 +114,4 @@ char	*_strdup(const char *s1)
 	}
 	dup[i] = '\0';
 	return (dup);
-}
-
-
-char **_realloc(char **ptr, size_t size)
-{
-    int len;
-    char    **save;
-
-    len = 0;
-    if (ptr == NULL)
-    {
-        save = malloc(sizeof(char *) * 2);
-        save[0] = NULL;
-        save[1] = NULL;
-        return (save);
-    }
-
-    save = malloc(size);
-    while(ptr[len])
-    {
-        save[len] = _strdup(ptr[len]);
-        free(ptr[len]);
-        len++;
-    }
-    free(ptr);
-    save[len++] = NULL;
-    save[len] = NULL;
-    return (save);
 }
