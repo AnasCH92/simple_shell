@@ -42,14 +42,14 @@ void init_data(input *data, const char *shell_name)
  * Return: void
  */
 
-void child_process(input *data)
+void child_process(input *data, char **environ)
 {
     pid_t child_pid = fork();
     int status = 0;
 
     if (child_pid == -1)
         goto free;
-    if (child_pid == 0 && execve(data->av[0], data->av, NULL) == -1)
+    if (child_pid == 0 && execve(data->av[0], data->av, environ) == -1)
 		goto free;
     else if (wait(&status) == -1)
 		goto free;

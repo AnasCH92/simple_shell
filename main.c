@@ -27,7 +27,7 @@ int main(int argc, char **argv, char **env)
 			    if (access(data->av[0], F_OK) == -1)
 				    perror(data->shell_name);
 			    else
-                    child_process(data);
+                    child_process(data, environ);
 		    }
 
             free_array(data->av);

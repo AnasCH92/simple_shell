@@ -37,7 +37,7 @@ void builtin_exit(input *data)
 	int status = 0;
 
 	if (data->av[1])
-		status = atoi(data->av[1]);
+		status = _atoi(data->av[1]);
 	free_array(data->av);
 	free(data->command);
 	free(data);

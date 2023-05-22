@@ -37,7 +37,7 @@ void command_line(input *d);
 void init_data(input *data, const char *shell_name);
 void command_spliter(input *data, const char *delim);
 void free_array(char **array);
-void child_process(input *data);
+void child_process(input *data, char **environ);
 int exec_builtin(input *data);
 void builtin_exit(input *data);
 void builtin_env(input *data);
@@ -50,6 +50,6 @@ char	*_strcpy(char	*dest, char	*src);
 char	*_strcat(char	*dest, char	*src);
 int	_strcmp(char	*s1, char	*s2);
 char *get_env(char *env_var);
-
+int _atoi(char *s);
 
 #endif
