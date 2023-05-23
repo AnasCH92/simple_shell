@@ -21,14 +21,14 @@ int	_putchar(char c)
 
 void _printf(const char *s1)
 {
-    int i = 0;
-
-   	while (*s1 != '\0')
+    if (str == NULL)
+    	return;
+	
+   	while (*str != '\0')
     {
-       	putchar(s1[i]);
-       	s1++;
+       	write(STDOUT_FILENO, str, 1);
+       	str++;
    	}
-	putchar(' ');
 }
 
 /**
@@ -52,15 +52,15 @@ void init_data(input *data, const char *shell_name)
  */
 
 	void child_process(input *data, char **environ)
-	{	
-   	pid_t child_pid = fork();
-   	int status = 0;
+{	
+	pid_t child_pid = fork();
+	int status = 0;
 	
- 	if (child_pid == -1)
-    	goto free;
-  	if (child_pid == 0 && execve(data->av[0], data->av, environ) == -1)
+	if (child_pid == -1)
+	goto free;
+	if (child_pid == 0 && execve(data->av[0], data->av, environ) == -1)
 		goto free;
-  	else if (wait(&status) == -1)
+	else if (wait(&status) == -1)
 		goto free;
 	return;
 	free:
@@ -113,7 +113,7 @@ void init_data(input *data, const char *shell_name)
 
 	void command_spliter(input *data, const char *delim)
 	{
-   		char *token;
+	char *token;
 		int ntoken = 0;
 
 		data->av = malloc(2 * sizeof(char *));
