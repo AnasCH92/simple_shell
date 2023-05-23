@@ -21,14 +21,11 @@ int	_putchar(char c)
 
 void _printf(const char *s1)
 {
-    if (str == NULL)
-    	return;
-	
-   	while (*str != '\0')
-    {
-       	write(STDOUT_FILENO, str, 1);
-       	str++;
-   	}
+	int i = 0;
+
+	while (s1[i] != '\0')
+		_putchar(s1[i]);
+	_putchar('\n');
 }
 
 /**
