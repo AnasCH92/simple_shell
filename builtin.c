@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 /**
  * exec_builtin - check if built in and then exec
  * @data: input struct input

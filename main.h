@@ -9,9 +9,7 @@
 #include <sys/stat.h>
 
 extern char **environ;
-	
-	
-	
+
 typedef struct input
 {
 	char **av;
