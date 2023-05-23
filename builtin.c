@@ -52,7 +52,7 @@ void builtin_env(input *data)
 {
 	int i = 0;
 
-    (void)data;
+	(void)data;
 	while (environ[i])
 	{
 		_printf(environ[i]);
@@ -73,5 +73,6 @@ char *get_env(char *env_var)
 			return (strtok(NULL, "\n"));
 		i++;
 	}
+
 	return (NULL);
 }
