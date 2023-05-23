@@ -104,7 +104,7 @@ void init_data(input *data, const char *shell_name)
 
 	void command_spliter(input *data, const char *delim)
 	{
-   		char *token;
+	char *token;
 		int ntoken = 0;
 
 		data->av = malloc(2 * sizeof(char *));
