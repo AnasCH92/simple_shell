@@ -76,32 +76,3 @@ char *get_env(char *env_var)
 	}
 	return (NULL);
 }
-
-void command_path(input *data)
-{
-	char *path = get_env("PATH");
-	char *token;
-	char *full_command;
-	struct stat st;
-
-	token = strtok(path, ":");
-	while (token)
-	{
-		full_command = malloc(_strlen(token) + _strlen(data->av[0]) + 2);
-		if (full_command == NULL)
-			exit(0);
-		_strcpy(full_command, token);
-		_strcat(full_command, "/");
-		_strcat(full_command, data->av[0]);
-		
-		if (stat(full_command, &st) == 0)
-		{
-			free(data->av[0]);
-			data->av[0] = full_command;
-			break;
-		}
-		free(full_command);
-		token = strtok(NULL, ":");
-	}
-	
-}

@@ -16,21 +16,24 @@ int main(int argc, char **argv, char **env)
         while (1)
        	{
             
-     		if (isatty(STDIN_FILENO))
-    		_printf(prompt);
-    		command_line(data);
-   			command_spliter(data, delim);
+			if (isatty(STDIN_FILENO))
+				_printf(prompt);
+			else
+				write(STDERR_FILENO, "", 0);
+			command_line(data);
+			command_spliter(data, delim);
 			if (!exec_builtin(data))
 			{
+				_which(data);
 				if (access(data->av[0], F_OK) == -1)
-				perror(data->shell_name);
+					perror(data->shell_name);
 			else
-   			child_process(data, environ);
+				child_process(data, environ);
 			}
 
-       		free_array(data->av);
+			free_array(data->av);
 			free(data->command);
-   		}
-    }
-   		return (0);
+		}
+	}
+		return (0);
 }

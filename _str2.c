@@ -36,3 +36,27 @@ int _atoi(char *s)
 
 	return (h);
 }
+
+/**
+ * _strncmp -  comares the first n chars of two strings.
+ *
+ * @s1: pointer to string.
+ * @s2: pointer to string.
+ * @n: number of chars.
+ *
+ * Return: returns an integer.
+ */
+
+int	_strncmp(char *s1, char *s2, unsigned int n)
+{
+	unsigned int i = 0;
+	int result;
+
+	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
+	{
+			if (s1[i] != s2[i])
+				return (s1[i] - s2[i]);
+			i++;
+	}
+	return (0);
+}
