@@ -42,7 +42,7 @@ void init_data(input *data, const char *shell_name)
  */
 
 	void child_process(input *data, char **environ)
-{	
+	{
 	pid_t child_pid = fork();
 	int status = 0;
 	
