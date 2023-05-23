@@ -1,5 +1,5 @@
 #ifndef MAIN_H
-#define MAIN_h
+#define MAIN_H
 
 #include <stdio.h>
 #include <unistd.h>
@@ -15,7 +15,7 @@ typedef struct input
 	char **av;
 	char *command;
 	const char *shell_name;
-}input;
+} input;
 
 /**
  * struct builtin - holds the main data.
