@@ -1,6 +1,6 @@
 #include "main.h"
 
-int main(int argc, char **argv, char **env)
+int main(int argc, char **argv)
 {	
     const char prompt[11] = "#cisfun$ ";
     const char delim[10] = " \t\r\n";
@@ -21,19 +21,22 @@ int main(int argc, char **argv, char **env)
 			else
 				write(STDERR_FILENO, "", 0);
 			command_line(data);
-			command_spliter(data, delim);
-			if (!exec_builtin(data))
+			if (_strlen(data->command) != 0)
 			{
-				_which(data);
-				if (access(data->av[0], F_OK) == -1)
-					perror(data->shell_name);
-			else
-				child_process(data, environ);
+				command_spliter(data, delim);
+				if (!exec_builtin(data))
+				{
+					_which(data);
+					if (access(data->av[0], F_OK || X_OK) == -1)
+						perror(data->shell_name);
+					else
+						child_process(data, environ);
+				}
 			}
 
 			free_array(data->av);
 			free(data->command);
 		}
 	}
-		return (0);
+	return (0);
 }

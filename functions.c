@@ -1,6 +1,15 @@
 #include "main.h"
 
 /**
+ * _putchar - writes the char c tou stdout.
+ * @c: the char to print
+ * Return: 1 for succes and -1 for error. 
+ */
+int	_putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+/**
  * _putchar - Writes the character c to stdout
  *
  * @str: The character to print
@@ -10,16 +19,16 @@
 
 #include <unistd.h>
 
-void _printf(const char *str)
+void _printf(const char *s1)
 {
-    if (str == NULL)
-    	return;
-	
-   	while (*str != '\0')
+    int i = 0;
+
+   	while (*s1 != '\0')
     {
-       	write(STDOUT_FILENO, str, 1);
-       	str++;
+       	putchar(s1[i]);
+       	s1++;
    	}
+	putchar(' ');
 }
 
 /**

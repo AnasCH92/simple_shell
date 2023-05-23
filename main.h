@@ -29,7 +29,7 @@ typedef struct builtin
 } builtin;
 
 
-
+int	_putchar(char c);
 void _printf(const char *str);
 void init_data(input *data, const char *shell_name);
 void command_line(input *d);
