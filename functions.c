@@ -12,14 +12,14 @@
 
 void _printf(const char *str)
 {
-    if (str == NULL)
-    	return;
+	if (str == NULL)
+	return;
 	
-   	while (*str != '\0')
-    {
-       	write(STDOUT_FILENO, str, 1);
-       	str++;
-   	}
+	while (*str != '\0')
+	{
+	write(STDOUT_FILENO, str, 1);
+	str++;
+	}
 }
 
 /**
@@ -44,14 +44,14 @@ void init_data(input *data, const char *shell_name)
 
 	void child_process(input *data, char **environ)
 	{	
-   	pid_t child_pid = fork();
-   	int status = 0;
+	pid_t child_pid = fork();
+	int status = 0;
 	
- 	if (child_pid == -1)
-    	goto free;
-  	if (child_pid == 0 && execve(data->av[0], data->av, environ) == -1)
+	if (child_pid == -1)
+	goto free;
+	if (child_pid == 0 && execve(data->av[0], data->av, environ) == -1)
 		goto free;
-  	else if (wait(&status) == -1)
+	else if (wait(&status) == -1)
 		goto free;
 	return;
 	free:
