@@ -1,35 +1,6 @@
 #include "main.h"
 
 /**
-* _putchar - writes the char c tou stdout.
-* @c: the char to print
-* Return: 1 for succes and -1 for error. 
-*/
-int	_putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-/**
- * _printf - Writes string to stdout
- *
- * @s1: string to print
- *
- * Return: On success 1.
-*/
-
-void _printf(const char *s1)
-{
-	int i = 0;
-
-	while (s1[i] != '\0')
-	{
-		_putchar(s1[i]);
-		i++;
-	}
-	_putchar(' ');
-}
-
-/**
  * init_data - init data
  * @data: data struct input
  * @shell_name: string input
@@ -53,7 +24,7 @@ void init_data(input *data, const char *shell_name)
 	{
 	pid_t child_pid = fork();
 	int status = 0;
-	
+
 	if (child_pid == -1)
 	goto free;
 	if (child_pid == 0 && execve(data->av[0], data->av, environ) == -1)
@@ -68,7 +39,8 @@ void init_data(input *data, const char *shell_name)
 	exit(EXIT_FAILURE);
 	}
 /**
- * command_line - get the commend from the prompt and structure it into data struct
+ * command_line - get the commend from the prompt and structure
+ *                it into data struct
  * @data: data struct input
  * Return: void
  */
