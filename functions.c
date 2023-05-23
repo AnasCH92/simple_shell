@@ -14,7 +14,6 @@ void _printf(const char *str)
 {
 	if (str == NULL)
 	return;
-	
 	while (*str != '\0')
 	{
 	write(STDOUT_FILENO, str, 1);
