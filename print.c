@@ -26,6 +26,6 @@ void _printf(const char *s1)
 		_putchar(s1[i]);
 		i++;
 	}
-	_putchar(' ');
+	/*_putchar(' ');*/
 
 }

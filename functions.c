@@ -32,6 +32,7 @@ void init_data(input *data, const char *shell_name)
 	else if (wait(&status) == -1)
 		goto free;
 	return;
+
 	free:
 		perror(data->shell_name);
 		free_array(data->av);
