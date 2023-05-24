@@ -6,7 +6,7 @@ int main(int argc, char **argv)
 	const char delim[10] = " \t\r\n";
 	input *data;
 
-	data = malloc(sizeof (input));
+	data = malloc(sizeof(input));
 
 	init_data(data, argv[0]);
 
