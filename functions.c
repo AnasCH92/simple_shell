@@ -58,7 +58,7 @@ void command_line(input *data)
 	{
 		free(data->command);
 		free(data);
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
 
 	data->command[nb_of_chars - 1] = '\0';
