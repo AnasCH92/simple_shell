@@ -42,6 +42,6 @@ int main(__attribute__((unused))int argc, char **argv)
 		}
 		free(data->command);
 	}
-
+	free(data);
 	return (0);
 }

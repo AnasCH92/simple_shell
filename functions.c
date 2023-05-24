@@ -57,6 +57,7 @@ void command_line(input *data)
 	if (nb_of_chars == -1)
 	{
 		free(data->command);
+		free(data);
 		exit(EXIT_FAILURE);
 	}
 
