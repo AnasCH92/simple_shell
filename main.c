@@ -8,7 +8,7 @@ int main(int argc, char **argv)
 	
 	data = malloc(sizeof (input));
 	
-    init_data(data, argv[0]);
+	init_data(data, argv[0]);
 	
     if (argc == 1)
     {
