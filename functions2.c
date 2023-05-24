@@ -50,3 +50,5 @@ void h_cmd(char *str)
 	    i++;
     } 
 }
+
+char *_getline
