@@ -8,22 +8,22 @@ int main(int argc, char **argv)
 	
 	data = malloc(sizeof (input));
 	
-	init_data(data, argv[0]);
+    init_data(data, argv[0]);
 	
-	if (argc == 1)
-	{
-	signal(SIGINT, _sigint);
-	while (1)
-	{
-		
-	if (isatty(STDIN_FILENO))
-	_printf(prompt);
-	else
-	write(STDERR_FILENO, "", 0);
-	command_line(data);
-	if (_strlen(data->command) != 0)
-	{
-	command_spliter(data, delim);
+    if (argc == 1)
+    {
+        signal(SIGINT, _sigint);
+        while (1)
+       	{
+            
+			if (isatty(STDIN_FILENO))
+				_printf(prompt);
+			else
+				write(STDERR_FILENO, "", 0);
+			command_line(data);
+			if (_strlen(data->command) != 0)
+			{
+				command_spliter(data, delim);
 				if (!exec_builtin(data))
 				{
 					_which(data);
