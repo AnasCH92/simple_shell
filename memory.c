@@ -1,6 +1,13 @@
 #include "main.h"
 
-
+/**
+ * _realloc - changes the size of the memory.
+ *
+ *  @ptr: pointer to pointer.
+ *  @size: size.
+ *
+ *  Return: returns save.
+*/
 
 char **_realloc(char **ptr, size_t size)
 {
