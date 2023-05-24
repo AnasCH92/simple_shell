@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 	
 	if (argc == 1)
 	{
-        signal(SIGINT, _sigint);
+	signal(SIGINT, _sigint);
         while (1)
        	{
             
