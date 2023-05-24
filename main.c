@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 	
 	init_data(data, argv[0]);
 	
-    if (argc == 1)
+	if (argc == 1)
     {
         signal(SIGINT, _sigint);
         while (1)
