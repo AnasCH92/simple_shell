@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 	if (argc == 1)
 	{
 	signal(SIGINT, _sigint);
-        while (1)
+	while (1)
        	{
             
 			if (isatty(STDIN_FILENO))
