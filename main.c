@@ -1,5 +1,12 @@
 #include "main.h"
 
+
+/**
+ *  main - entry point.
+ *  @argc: counter args.
+ *  @argv: array of args.
+ *  Return: 0.
+*/
 int main(__attribute__((unused))int argc, char **argv)
 {
 	const char prompt[11] = "#cisfun$ ";
@@ -36,6 +43,6 @@ int main(__attribute__((unused))int argc, char **argv)
 			free_array(data->av);
 			free(data->command);
 		}
-	
+
 	return (0);
 }
