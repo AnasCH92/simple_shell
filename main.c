@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 	_printf(prompt);
 	else
 	write(STDERR_FILENO, "", 0);
-			command_line(data);
+	command_line(data);
 			if (_strlen(data->command) != 0)
 			{
 				command_spliter(data, delim);
