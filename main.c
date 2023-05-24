@@ -1,6 +1,6 @@
 #include "main.h"
 
-int main(int argc, char **argv)
+int main(__attribute__((unused))int argc, char **argv)
 {
 	const char prompt[11] = "#cisfun$ ";
 	const char delim[10] = " \t\r\n";
@@ -10,8 +10,7 @@ int main(int argc, char **argv)
 
 	init_data(data, argv[0]);
 
-	if (argc == 1)
-	{
+
 	signal(SIGINT, _sigint);
 	while (1)
 	{
@@ -37,6 +36,6 @@ int main(int argc, char **argv)
 			free_array(data->av);
 			free(data->command);
 		}
-	}
+	
 	return (0);
 }

@@ -49,7 +49,6 @@ void builtin_env(input *data);
 void _sigint(int signal);
 void free_array(char **array);
 char **_realloc(char **ptr, size_t size);
-void    command_path(input *data);
 int	_strlen(char	*str);
 char *get_env(char *env_var);
 int path_handling(input *data);

@@ -38,7 +38,7 @@ int path_handling(input *data)
 	char *token, *path,
 		*paths = malloc(_strlen(_getenv("PATH") ? _getenv("PATH") : "") + 1);
 	size_t token_len;
-	int find = -1;
+	int check = -1;
 
 	if (!_getenv("PATH"))
 		goto free;
@@ -51,7 +51,7 @@ int path_handling(input *data)
 		token_len = _strlen(token) + _strlen(data->av[0]) + 2;
 		path = malloc(token_len);
 		if (path == NULL)
-			return (find);
+			return (check);
 		_strcpy(path, token);
 		_strcat(path, "/");
 		_strcat(path,  data->av[0]);
@@ -60,7 +60,7 @@ int path_handling(input *data)
 			free(data->av[0]);
 			data->av[0] = _strdup(path);
 			free(path);
-			find = 0;
+			check = 0;
 			break;
 		}
 		free(path);
@@ -68,5 +68,5 @@ int path_handling(input *data)
 	}
 free:
 	free(paths);
-	return (find);
+	return (check);
 }
