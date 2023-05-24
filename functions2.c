@@ -1,6 +1,10 @@
 #include "main.h"
 
-
+/**
+ *  _white_spaces - remove ' ' and '\t' from command.
+ *  @s: iput string.
+ *  Return: void.
+ */
 
 void _white_spaces(char *s)
 {

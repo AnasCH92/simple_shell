@@ -15,13 +15,14 @@ void init_data(input *data, const char *shell_name)
 }
 
 /**
- * start_process - start a new process
+ * child_process - start a new process
  * @data: data struct input
+ * @environ: environ.
  * Return: void
  */
 
-	void child_process(input *data, char **environ)
-	{
+void child_process(input *data, char **environ)
+{
 	pid_t child_pid = fork();
 	int status = 0;
 
@@ -33,12 +34,12 @@ void init_data(input *data, const char *shell_name)
 		goto free;
 	return;
 
-	free:
-		perror(data->shell_name);
-		free_array(data->av);
-		free(data->command);
-		exit(EXIT_FAILURE);
-	}
+free:
+	perror(data->shell_name);
+	free_array(data->av);
+	free(data->command);
+	exit(EXIT_FAILURE);
+}
 /**
  * command_line - get the commend from the prompt and structure
  *                it into data struct
@@ -46,8 +47,9 @@ void init_data(input *data, const char *shell_name)
  * Return: void
  */
 
-	void command_line(input *data)
-	{
+void command_line(input *data)
+{
+	int i = 0;
 	size_t n = 0;
 	ssize_t nb_of_chars;
 
@@ -61,10 +63,20 @@ void init_data(input *data, const char *shell_name)
 
 	data->command[nb_of_chars - 1] = '\0';
 	_white_spaces(data->command);
+	while (data->command[i] != '\0')
+	{
+		if (data->command[i] == '#')
+		{
+			data->command[i] = '\0';
+			break;
+		}
+		i++;
 	}
+	_white_spaces(data->command);
+}
 
 /**
- * handler_sigint - Signal handler function
+ * _sigint - Signal handler function
  * @signal: int input
  * Return: void
  */
@@ -77,45 +89,46 @@ void init_data(input *data, const char *shell_name)
 	}
 
 /**
- * split - split a given string by a delimiter
+ * command_spliter - split a given string by a delimiter
  * @data: data struct input
  * @delim: string input
  * Return: void
  */
 
-	void command_spliter(input *data, const char *delim)
+void command_spliter(input *data, const char *delim)
+{
+	char *token;
+	int ntoken = 0;
+
+	data->av = malloc(2 * sizeof(char *));
+	if (data->av == NULL)
 	{
-		char *token;
-		int ntoken = 0;
-
-		data->av = malloc(2 * sizeof(char *));
-		if (data->av == NULL)
-		{
-			free(data->command);
-			perror(data->shell_name);
-			exit(EXIT_FAILURE);
-		}
-		data->av[0] = NULL;
-		data->av[1] = NULL;
-
-		token = strtok(data->command, delim);
-		while (token)
-		{
-			data->av = _realloc(data->av, (ntoken + 2) * sizeof(char *));
-			if (data->av == NULL)
-				goto free;
-			data->av[ntoken] = _strdup(token);
-			if (data->av[ntoken] == NULL)
-				goto free;
-			ntoken++;
-			token = strtok(NULL, delim);
-		}
-		data->av[ntoken] = NULL;
-		return;
-		free:
-			free_array(data->av);
-			free(data->command);
-			perror(data->shell_name);
-			exit(EXIT_FAILURE);
-
+		free(data->command);
+		perror(data->shell_name);
+		exit(EXIT_FAILURE);
 	}
+	data->av[0] = NULL;
+	data->av[1] = NULL;
+
+	token = strtok(data->command, delim);
+	while (token)
+	{
+		data->av = _realloc(data->av, (ntoken + 2) * sizeof(char *));
+		if (data->av == NULL)
+			goto free;
+		data->av[ntoken] = _strdup(token);
+		if (data->av[ntoken] == NULL)
+			goto free;
+		ntoken++;
+		token = strtok(NULL, delim);
+	}
+	data->av[ntoken] = NULL;
+	return;
+
+free:
+	free_array(data->av);
+	free(data->command);
+	perror(data->shell_name);
+	exit(EXIT_FAILURE);
+
+}

@@ -61,6 +61,9 @@ void builtin_env(input *data)
 	}
 }
 
+/**
+ * 
+*/
 char *get_env(char *env_var)
 {
 	int i = 0;
