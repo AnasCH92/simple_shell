@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 	else
 	write(STDERR_FILENO, "", 0);
 	command_line(data);
-			if (_strlen(data->command) != 0)
+	if (_strlen(data->command) != 0)
 			{
 				command_spliter(data, delim);
 				if (!exec_builtin(data))
