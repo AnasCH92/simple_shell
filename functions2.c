@@ -43,8 +43,8 @@ while (str[i] != '\0')
 {
 if (str[i] == '#')
 {
-		    str[i] = '\0';
-		    break;
+	str[i] = '\0';
+	break;
 	    }
 	    i++;
     } 
