@@ -10,6 +10,14 @@
 
 extern char **environ;
 
+
+/**
+ * struct input - holds the main data.
+ * @av: Array.
+ * @command: command line.
+ * @shell_name: The name of the shell program.
+ */
+
 typedef struct input
 {
 	char **av;
@@ -19,8 +27,8 @@ typedef struct input
 
 /**
  * struct builtin - holds the main data.
- * @cmd: built in cmd
- * @f: function of builtin cmd
+ * @command: built in command
+ * @f: function of builtin command
  */
 typedef struct builtin
 {
