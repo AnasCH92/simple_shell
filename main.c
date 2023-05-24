@@ -15,8 +15,8 @@ int main(int argc, char **argv)
 	signal(SIGINT, _sigint);
 	while (1)
 	{
-	
-			if (isatty(STDIN_FILENO))
+		
+	if (isatty(STDIN_FILENO))
 				_printf(prompt);
 			else
 				write(STDERR_FILENO, "", 0);
