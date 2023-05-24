@@ -1,9 +1,9 @@
 #include "main.h"
 
 int main(int argc, char **argv)
-{	
-    const char prompt[11] = "#cisfun$ ";
-    const char delim[10] = " \t\r\n";
+{
+	const char prompt[11] = "#cisfun$ ";
+	const char delim[10] = " \t\r\n";
     input *data;
 	
     data = malloc(sizeof (input));
