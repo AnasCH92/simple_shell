@@ -5,9 +5,9 @@ int main(int argc, char **argv)
 	const char prompt[11] = "#cisfun$ ";
 	const char delim[10] = " \t\r\n";
 	input *data;
-	
+
 	data = malloc(sizeof (input));
-	
+		
 	init_data(data, argv[0]);
 	
 	if (argc == 1)
@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 	signal(SIGINT, _sigint);
 	while (1)
 	{
-		
+	
 	if (isatty(STDIN_FILENO))
 	_printf(prompt);
 	else
