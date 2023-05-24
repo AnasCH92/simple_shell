@@ -27,4 +27,5 @@ void _printf(const char *s1)
 		i++;
 	}
 	_putchar(' ');
+
 }
