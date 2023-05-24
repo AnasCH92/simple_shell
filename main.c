@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 		
 	if (isatty(STDIN_FILENO))
 	_printf(prompt);
-			else
+	else
 				write(STDERR_FILENO, "", 0);
 			command_line(data);
 			if (_strlen(data->command) != 0)
