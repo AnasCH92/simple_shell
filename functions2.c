@@ -38,9 +38,8 @@ void _white_spaces(char *s)
 
 void h_cmd(char *str)
 {
-    int i = 0;
-
-    while (str[i] != '\0')
+int i = 0;
+while (str[i] != '\0')
     {
 	    if (str[i] == '#')
 	    {
