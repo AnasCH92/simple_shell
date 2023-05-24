@@ -63,7 +63,7 @@ void builtin_env(input *data)
 
 /**
 *  get_env - retrieves the value of an environment variable.
-* @en_var: the environment variable to retrieve.
+* @env_var: the environment variable to retrieve.
 *
 * Return: the value of the environment variable, or NULL.
 */

@@ -27,7 +27,7 @@ void child_process(input *data, char **environ)
 	int status = 0;
 
 	if (child_pid == -1)
-	goto free;
+		goto free;
 	if (child_pid == 0 && execve(data->av[0], data->av, environ) == -1)
 		goto free;
 	else if (wait(&status) == -1)
@@ -63,7 +63,6 @@ void command_line(input *data)
 	data->command[nb_of_chars - 1] = '\0';
 	_white_spaces(data->command);
 	h_cmd(data->command);
-	_white_spaces(data->command);
 }
 
 /**

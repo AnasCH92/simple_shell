@@ -22,27 +22,26 @@ int main(__attribute__((unused))int argc, char **argv)
 	while (1)
 	{
 
-	if (isatty(STDIN_FILENO))
-	_printf(prompt);
-	else
-	write(STDERR_FILENO, "", 0);
-	command_line(data);
-	if (_strlen(data->command) != 0)
-	{
-	command_spliter(data, delim);
-				if (!exec_builtin(data))
-				{
-					path_handling(data);
-					if (access(data->av[0], F_OK || X_OK) == -1)
-						perror(data->shell_name);
-					else
-						child_process(data, environ);
-				}
+		if (isatty(STDIN_FILENO))
+			_printf(prompt);
+		else
+			write(STDERR_FILENO, "", 0);
+		command_line(data);
+		if (_strlen(data->command) != 0)
+		{
+			command_spliter(data, delim);
+			if (!exec_builtin(data))
+			{
+				path_handling(data);
+				if (access(data->av[0], F_OK || X_OK) == -1)
+					perror(data->shell_name);
+				else
+					child_process(data, environ);
 			}
-
 			free_array(data->av);
-			free(data->command);
 		}
+		free(data->command);
+	}
 
 	return (0);
 }
