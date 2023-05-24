@@ -33,7 +33,7 @@ char *_getenv(char *name)
  * @data: string input
  * Return: void
  */
-int _which(input *data)
+int path_handling(input *data)
 {
 	char *token, *path,
 		*paths = malloc(_strlen(_getenv("PATH") ? _getenv("PATH") : "") + 1);

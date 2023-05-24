@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 	command_spliter(data, delim);
 				if (!exec_builtin(data))
 				{
-					_which(data);
+					path_handling(data);
 					if (access(data->av[0], F_OK || X_OK) == -1)
 						perror(data->shell_name);
 					else
