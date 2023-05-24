@@ -31,23 +31,22 @@ void _white_spaces(char *s)
 }
 
 /**
- *  h-cmd - handles and removes comments from command
- *  @str: input.
+ * h_cmd - handles and removes comments from command
+ * @str: input.
  * Return: void.
 */
 
 void h_cmd(char *str)
 {
-int i = 0;
-while (str[i] != '\0')
-{
-if (str[i] == '#')
-{
-	str[i] = '\0';
-	break;
-}
-	i++;
-} 
-}
+	int i = 0;
 
-char *_getline
+	while (str[i] != '\0')
+	{
+		if (str[i] == '#')
+		{
+			str[i] = '\0';
+			break;
+		}
+		i++;
+	}
+}
