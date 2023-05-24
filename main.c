@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 	{
 		
 	if (isatty(STDIN_FILENO))
-				_printf(prompt);
+	_printf(prompt);
 			else
 				write(STDERR_FILENO, "", 0);
 			command_line(data);
