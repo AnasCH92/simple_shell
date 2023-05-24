@@ -33,10 +33,10 @@ void init_data(input *data, const char *shell_name)
 		goto free;
 	return;
 	free:
-	perror(data->shell_name);
-	free_array(data->av);
-	free(data->command);
-	exit(EXIT_FAILURE);
+		perror(data->shell_name);
+		free_array(data->av);
+		free(data->command);
+		exit(EXIT_FAILURE);
 	}
 /**
  * command_line - get the commend from the prompt and structure
@@ -83,7 +83,7 @@ void init_data(input *data, const char *shell_name)
 
 	void command_spliter(input *data, const char *delim)
 	{
-	char *token;
+		char *token;
 		int ntoken = 0;
 
 		data->av = malloc(2 * sizeof(char *));
@@ -111,9 +111,9 @@ void init_data(input *data, const char *shell_name)
 		data->av[ntoken] = NULL;
 		return;
 		free:
-		free_array(data->av);
-		free(data->command);
-		perror(data->shell_name);
-		exit(EXIT_FAILURE);
+			free_array(data->av);
+			free(data->command);
+			perror(data->shell_name);
+			exit(EXIT_FAILURE);
 
 	}
