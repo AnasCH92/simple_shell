@@ -46,8 +46,8 @@ if (str[i] == '#')
 	str[i] = '\0';
 	break;
 }
-	    i++;
-    } 
+	i++;
+} 
 }
 
 char *_getline
