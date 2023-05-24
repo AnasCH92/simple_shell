@@ -49,3 +49,5 @@ if (str[i] == '#')
 	    i++;
     } 
 }
+
+char *_getline
