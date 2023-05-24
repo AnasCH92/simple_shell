@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 	command_line(data);
 	if (_strlen(data->command) != 0)
 	{
-				command_spliter(data, delim);
+	command_spliter(data, delim);
 				if (!exec_builtin(data))
 				{
 					_which(data);
