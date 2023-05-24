@@ -29,7 +29,7 @@ char *_getenv(char *name)
 }
 
 /**
- * _which - locate the executable file associated with a given command.
+ * path_handling - locate the executable file associated with a given command.
  * @data: string input
  * Return: void
  */

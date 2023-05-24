@@ -59,5 +59,6 @@ char	*_strcpy(char	*dest, char	*src);
 int _atoi(char *s);
 int	_strcmp(char	*s1, char	*s2);
 int	_strncmp(char *s1, char *s2, unsigned int n);
+void _white_spaces(char *s);
 
 #endif

@@ -60,6 +60,7 @@ void init_data(input *data, const char *shell_name)
 	}
 
 	data->command[nb_of_chars - 1] = '\0';
+	_white_spaces(data->command);
 	}
 
 /**
